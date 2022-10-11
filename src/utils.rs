@@ -60,7 +60,7 @@ fn get_default_context()->Value{
 // modify identify payload to rudder format
 pub fn parse_identify(msg:&Identify)-> Ruddermessage{
     let mut modified_context = get_default_context();
-    merge(&mut modified_context, msg.context.clone().unwrap_or(json!({})));
+    merge(&mut modified_context, msg.context.clone().unwrap_or_else(|| json!({})));
 
     let original_timestamp;
     let sent_at = Utc::now();
@@ -89,7 +89,7 @@ pub fn parse_identify(msg:&Identify)-> Ruddermessage{
 // modify track payload to rudder format
 pub fn parse_track(msg:&Track)-> Ruddermessage{
     let mut modified_context = get_default_context();
-    merge(&mut modified_context, msg.context.clone().unwrap_or(json!({})));
+    merge(&mut modified_context, msg.context.clone().unwrap_or_else(|| json!({})));
 
     let original_timestamp;
     let sent_at = Utc::now();
@@ -119,7 +119,7 @@ pub fn parse_track(msg:&Track)-> Ruddermessage{
 // modify page payload to rudder format
 pub fn parse_page(msg:&Page)-> Ruddermessage{
     let mut modified_context = get_default_context();
-    merge(&mut modified_context, msg.context.clone().unwrap_or(json!({})));
+    merge(&mut modified_context, msg.context.clone().unwrap_or_else(|| json!({})));
 
     let original_timestamp;
     let sent_at = Utc::now();
@@ -149,7 +149,7 @@ pub fn parse_page(msg:&Page)-> Ruddermessage{
 // modify screen payload to rudder format
 pub fn parse_screen(msg:&Screen)-> Ruddermessage{
     let mut modified_context = get_default_context();
-    merge(&mut modified_context, msg.context.clone().unwrap_or(json!({})));
+    merge(&mut modified_context, msg.context.clone().unwrap_or_else(|| json!({})));
 
     let original_timestamp;
     let sent_at = Utc::now();
@@ -179,7 +179,7 @@ pub fn parse_screen(msg:&Screen)-> Ruddermessage{
 // modify group payload to rudder format
 pub fn parse_group(msg:&Group)-> Ruddermessage{
     let mut modified_context = get_default_context();
-    merge(&mut modified_context, msg.context.clone().unwrap_or(json!({})));
+    merge(&mut modified_context, msg.context.clone().unwrap_or_else(|| json!({})));
 
     let original_timestamp;
     let sent_at = Utc::now();
@@ -209,7 +209,7 @@ pub fn parse_group(msg:&Group)-> Ruddermessage{
 // modify alias payload to rudder format
 pub fn parse_alias(msg:&Alias)-> Ruddermessage{
     let mut modified_context = get_default_context();
-    merge(&mut modified_context, msg.context.clone().unwrap_or(json!({})));
+    merge(&mut modified_context, msg.context.clone().unwrap_or_else(|| json!({})));
 
     let original_timestamp;
     let sent_at = Utc::now();
@@ -238,7 +238,7 @@ pub fn parse_alias(msg:&Alias)-> Ruddermessage{
 // modify batch payload to rudder format
 pub fn parse_batch(msg:&Batch)-> Ruddermessage{
     let mut modified_context = get_default_context();
-    merge(&mut modified_context, msg.context.clone().unwrap_or(json!({})));
+    merge(&mut modified_context, msg.context.clone().unwrap_or_else(|| json!({})));
 
     let original_timestamp;
     let sent_at = Utc::now();
